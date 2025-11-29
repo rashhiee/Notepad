@@ -11,7 +11,7 @@ type NavbarProps = {
 };
 
 const Navbar = ({ heading }: NavbarProps) => {
-    const router = useRouter()
+    const router = useRouter();
     const [open, setOpen] = useState(false);
 
     // const handleLogout = async () => {
@@ -20,7 +20,7 @@ const Navbar = ({ heading }: NavbarProps) => {
     // }
 
     return (
-        <div className="bg-white p-5 flex justify-between items-center w-full border-b">
+        <div className="bg-[#f3efe2] border-gray-500 p-5 flex justify-between items-center w-full border-b">
 
           
             <div className="flex items-center gap-3">
@@ -49,7 +49,7 @@ const Navbar = ({ heading }: NavbarProps) => {
                         <button className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">
                             Settings
                         </button>
-                        <button className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">
+                        <button className="w-full text-left px-3 py-4 text-sm text-gray-700 hover:bg-gray-100 rounded">
                             Help & Support
                         </button>
                         {/* <button onClick={handleLogout}  className="w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-gray-100 rounded">

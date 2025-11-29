@@ -38,7 +38,7 @@ const AddNoteModel = ({ onClose }: AddNoteModalProps) => {
 
     return (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-            <div className="bg-white  w-full max-w-md shadow-xl p-5">
+            <div className="bg-[#f3efe2]  w-full max-w-md shadow-xl p-5">
                 <div className="flex items-center justify-between p-4 border-b">
                     <div className='flex gap-3 items-center'>
                     <NotepadText color='black' width='20px'/>
@@ -61,7 +61,7 @@ const AddNoteModel = ({ onClose }: AddNoteModalProps) => {
                             type="text"
                             name="noteName"
                             required
-                            className="w-full px-3 py-2 border text-gray-500 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                            className="w-full px-3 py-2 border text-gray-500 border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
                             placeholder="Enter note name"
                         />
                     </div>
@@ -73,7 +73,7 @@ const AddNoteModel = ({ onClose }: AddNoteModalProps) => {
                         <input
                             type="text"
                             name="heading"
-                            className="w-full px-3 py-2 border  text-gray-500 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                            className="w-full px-3 py-2 border  text-gray-500 border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
                             placeholder="Enter heading"
                         />
                     </div>
@@ -85,7 +85,7 @@ const AddNoteModel = ({ onClose }: AddNoteModalProps) => {
                         <textarea
                             name="description"
                             rows={3}
-                            className="w-full px-3 py-2  text-gray-500 border  border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                            className="w-full px-3 py-2  text-gray-500 border  border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
                             placeholder="Enter description"
                         />
                     </div>
@@ -98,7 +98,7 @@ const AddNoteModel = ({ onClose }: AddNoteModalProps) => {
                             {DEFAULT_TAGS.map((tag) => (
                                 <label
                                     key={tag}
-                                    className="flex  text-gray-500 items-center gap-2 px-3 py-1 bg-gray-100 rounded-full cursor-pointer hover:bg-gray-200"
+                                    className="flex  text-gray-100 items-center gap-2 px-3 py-1 bg-gray-400 rounded-sm cursor-pointer hover:bg-gray-200"
                                 >
                                     <input
                                         type="checkbox"

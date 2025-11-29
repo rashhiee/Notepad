@@ -2,6 +2,7 @@ import Link from "next/link";
 // import Note from "../model/note";
 import { INote } from "../types/note"
 
+
 interface NoteListed {
     notes: INote[];
 }
@@ -14,13 +15,15 @@ export default function NotesList({ notes }: NoteListed) {
                     No notes yet. Create your first note!
                 </p>
             ) : (
-                <div className="space-y-2">
-                    {notes.map((note) => (
+                <div className="space-y-2 ">
+                    {notes.map((note,idx) => (
                         <Link
                             key={note._id.toString()}
                             href={`/dashboard/${note._id}`}
-                            className="block p-3 rounded-lg hover:bg-gray-50 transition border border-transparent hover:border-gray-200"
+                            className={`block p-3 rounded-lg hover:bg-gray-50 transition border  border-gray-500
+                            ${idx !== notes.length - 1 ? "border-b border-gray-200" : ""}`} // <-- separator line
                         >
+
                             <h3 className="font-medium text-gray-900 truncate">
                                 {note.noteName}
                             </h3>

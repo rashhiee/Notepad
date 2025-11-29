@@ -51,22 +51,22 @@ export function NoteView({ note }: NoteViewed) {
         <div className="flex flex-col w-full h-full">
             <Navbar heading={note.noteName || "Untitled Note"} />
 
-            <div className="max-w-4xl mx-auto p-8">
+            <div className="max-w-4xl mx-auto  p-8">
 
-                <div className="bg-white rounded-lg shadow-sm p-6">
+                <div className="bg-[#f3efe2] mt-15 rounded-sm border border-gray-500 p-6">
 
 
                     <div className="flex justify-between items-start mb-6">
                         <div>
                             {!isEditing ? (
-                                <>
-                                    <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                                <div className='flex-col items-center'>
+                                    <h1 className="text-3xl text-center font font-bold text-[#5b2a03] mb-2">
                                         {note.noteName}
                                     </h1>
                                     {note.heading && (
-                                        <h2 className="text-xl text-gray-700">{note.heading}</h2>
+                                        <h2 className="text-xl font-bold text-gray-700">{note.heading}</h2>
                                     )}
-                                </>
+                                </div>
                             ) : (
                                 <>
                                     <input
@@ -83,12 +83,12 @@ export function NoteView({ note }: NoteViewed) {
                             )}
                         </div>
 
-                        <div className="flex gap-2">
+                        <div className="flex flex-col gap-4 px-3">
                             {!isEditing ? (
                                 <>
                                     <button
                                         onClick={() => setIsEditing(true)}
-                                        className="px-4 py-2 hover:bg-blue-200 text-blue-500 rounded-sm"
+                                        className="px-4 py-2 hover:text-blue-400 text-black font-bold rounded-sm"
                                     >
                                         <SquarePen width='20px' />
                                     </button>

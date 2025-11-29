@@ -28,7 +28,7 @@ export default  function DeleteNoteButton({ noteId }: { noteId: string }) {
     return (
         <button
             onClick={handleDelete}
-            className="px-4 py-2  text-red-500 hover:bg-red-300 rounded-sm  flex items-center gap-2"
+            className="px-4 py-2  text-black font-bold hover:text-red-500 rounded-sm  flex items-center gap-2"
         >
             <Trash2 size={16} />
             

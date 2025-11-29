@@ -1,5 +1,6 @@
 export interface INote {
   _id: string;
+  userId:string,
   noteName: string;
   tags: string[];
   heading?: string;

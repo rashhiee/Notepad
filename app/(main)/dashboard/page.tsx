@@ -8,11 +8,11 @@ export default function DashboardPage() {
  return (
   <>
   <SignedIn>
-    <div className="w-full">
+    <div className="w-full bg-[#f3efe2]">
 
       <Navbar heading=" " />
 
-    <div className="flex items-center justify-center h-80vh">
+    <div className="flex items-center bg-[#f3efe2] justify-center h-80vh">
       
       <div className="text-center">
         <h1 className="text-2xl font-bold text-gray-900 mt-[50px] mb-2">

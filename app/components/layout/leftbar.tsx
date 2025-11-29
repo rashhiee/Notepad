@@ -1,41 +1,39 @@
-import dbConnect from "@/app/lib/mongoose";
-import  { INote } from "../../types/note"
-import Note from "@/app/lib/model/note";
-// import { Plus } from "lucide-react";
+
+import { INote } from "../../types/note"
+// import { cookies } from "next/headers";
+import { auth } from "@clerk/nextjs/server";
+
 import AddNoteButton from "../AddButton";
 import NotesList from "../Notelist";
 import { NotepadText } from "lucide-react";
-// import { SignInButton } from "@clerk/nextjs";
+import Note from "@/app/lib/model/note";
 
 
 
-export async function getNotes() :Promise<INote[]> {
-    try {
-        await dbConnect();
-        const notes = await Note.find().sort({updated:-1}).lean();
-           return JSON.parse(JSON.stringify(notes));
-    } catch (error) {
-        console.error("Failed to fetch notes:", error);
-        return [];
-    }
-}
 
 export default async function LeftbarUI() {
-    const notes = await getNotes();
+    // const notes = await getNotes();
+    const { userId } = await auth() as { userId?: string };
+
+    if (!userId) {
+        return <p className="p-4 text-gray-500">Sign in to see your notes</p>;
+    }
+
+    const notes: INote[] = await Note.find({ userId }).sort({ updatedAt: -1 }).lean();
+
     return (
-        <aside className="fixed lg:static inset-y-0 left-0 z-40 w-[240px] bg-white border-r border-gray-100 flex flex-col shadow-sm">
+        <aside className="fixed lg:static inset-y-0 left-0 z-40 w-[240px] bg-[#f3efe2] border-r border-gray-500 flex flex-col shadow-sm">
 
-
-            <div className="p-6 border-b border-gray-100">
+            <div className=" border-b border-gray-100">
                 <div className="flex gap-8">
 
-                    <div className="flex flex-col items-center gap-5 ">
+                    <div className="flex w-full flex-col   ">
 
-                        <div>
-                            <h1 className="text-amber-900 mb-5 text-3xl"> Zenpad</h1>
+                        <div className="w-full p-5.5 bg-[#f3efe2] flex justify-center items-center ">
+                            <h1 className="text-amber-900 font font-bold text-3xl"> Zenpad</h1>
                         </div>
 
-                        <div className="flex gap-3 items-center">
+                        <div className="flex gap-3 items-center p-6">
                             <NotepadText color="black" />
                             <p className="text-[17px] font-semibold text-gray-900">MY NOTES</p>
                         </div>
@@ -50,15 +48,15 @@ export default async function LeftbarUI() {
 
                 {/* <SignInButton/> */}
 
-                 <div className="relative mt-5">
+                <div className="px-3  relative">
                     <input
                         type="text"
                         placeholder="Search…"
-                        className="w-full pl-4 pr-10 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:outline-none text-gray-700 placeholder:text-gray-400"
+                        className="w-full pl-4 pr-10 py-2.5 text-sm bg-[#f3efe2] border border-gray-700 rounded-xl focus:outline-none text-gray-700 placeholder:text-gray-400"
                     />
 
-                    
-                    <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 p-2">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -77,11 +75,11 @@ export default async function LeftbarUI() {
                 </div>
 
 
-               <AddNoteButton />
+                <AddNoteButton />
 
             </div>
-              
-              <NotesList notes={notes} />
+
+            <NotesList notes={notes} />
 
         </aside>
     );
