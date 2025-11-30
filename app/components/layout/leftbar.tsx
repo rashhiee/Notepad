@@ -32,8 +32,9 @@ export default async function LeftbarUI() {
 
                     <div className="flex w-full flex-col   ">
 
-                        <div className="w-full p-5.5 bg-[#f3efe2] flex justify-center items-center ">
-                            <h1 className="text-amber-900 font font-bold text-3xl"> Zenpad</h1>
+                        <div className="w-full p-5.5 bg-[#f3efe2] flex  gap-1 items-center ">
+                            <img src="/notepadlogo.jpg" alt="zenpad" className="h-15"/>
+                            <h1 className="text-[#511a02] font font-bold text-3xl"> Zenpad</h1>
                         </div>
 
                         <div className="flex gap-3 items-center p-6">
