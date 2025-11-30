@@ -43,7 +43,8 @@ const Navbar = ({ heading }: NavbarProps) => {
                     onClick={() => setOpen(!open)}
                     className="p-1 hover:bg-gray-100 rounded cursor-pointer"
                 >
-                    <Menu className="text-gray-600" />
+                    {/* <Menu className="text-gray-600" /> */}
+                    <img src="/bullet-point.png" alt="" className="h-10 " />
                 </button>
 
                 {open && (
