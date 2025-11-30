@@ -7,6 +7,7 @@ import AddNoteButton from "../AddButton";
 import NotesList from "../Notelist";
 import { NotepadText } from "lucide-react";
 import Note from "@/app/lib/model/note";
+import dbConnect from "@/app/lib/mongoose";
 
 
 
@@ -18,6 +19,8 @@ export default async function LeftbarUI() {
     if (!userId) {
         return <p className="p-4 text-gray-500">Sign in to see your notes</p>;
     }
+
+    await dbConnect()
 
     const notes: INote[] = await Note.find({ userId }).sort({ updatedAt: -1 }).lean();
 

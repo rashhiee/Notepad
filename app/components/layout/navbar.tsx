@@ -6,11 +6,13 @@ import { useRouter } from "next/navigation";
 // import axios from "../../lib/axios";
 import { SignedIn, SignIn, UserButton } from "@clerk/nextjs";
 
+
 type NavbarProps = {
     heading: string;
 };
 
 const Navbar = ({ heading }: NavbarProps) => {
+    
     const router = useRouter();
     const [open, setOpen] = useState(false);
 
@@ -22,21 +24,21 @@ const Navbar = ({ heading }: NavbarProps) => {
     return (
         <div className="bg-[#f3efe2] border-gray-500 p-5 flex justify-between items-center w-full border-b">
 
-          
+
             <div className="flex items-center gap-3">
                 <p className="text-xl text-gray-700 font-bold">My Notes</p>
                 <MoveRight color="gray" />
                 <p className="text-xl text-gray-700">{heading}</p>
             </div>
 
-           
+
             <div className="relative mr-5 flex items-center gap-3">
 
-               
+
                 {/* <User className="text-gray-600" />
                 <p className="text-gray-700 font-medium">hafeez</p> */}
 
-            
+
                 <button
                     onClick={() => setOpen(!open)}
                     className="p-1 hover:bg-gray-100 rounded cursor-pointer"
@@ -56,9 +58,21 @@ const Navbar = ({ heading }: NavbarProps) => {
                             Logout
                         </button> */}
                         <SignedIn>
-                            <UserButton/>
+                            <UserButton
+                                appearance={{
+                                    elements: {
+                                        avatarBox: "w-10 h-10"
+                                    }
+                                }}
+                                userProfileProps={{
+                                    additionalOAuthScopes: {
+                                        google: ['email']
+                                    }
+                                }}
+                                showName={true} // This shows the user's name
+                            />
                         </SignedIn>
-                        
+
                     </div>
                 )}
             </div>
