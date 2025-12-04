@@ -1,5 +1,5 @@
-import dbConnect from "@/app/lib/mongoose";
-import Note from "@/app/lib/model/note";
+import dbConnect from "@/src/lib/mongoose";
+import Note from "@/src/lib/model/note";
 import { NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 

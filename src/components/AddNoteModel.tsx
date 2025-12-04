@@ -98,7 +98,7 @@ const AddNoteModel = ({ onClose }: AddNoteModalProps) => {
                             {DEFAULT_TAGS.map((tag) => (
                                 <label
                                     key={tag}
-                                    className="flex  text-gray-100 items-center gap-2 px-3 py-1 bg-gray-400 rounded-sm cursor-pointer hover:bg-gray-200"
+                                    className="flex  text-gray-800 items-center gap-2 px-2 py-1  border border-gray-600 rounded-sm cursor-pointer hover:bg-gray-200"
                                 >
                                     <input
                                         type="checkbox"

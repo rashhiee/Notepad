@@ -1,7 +1,7 @@
-import dbConnect from "@/app/lib/mongoose";
-import Note from "@/app/lib/model/note";
+import dbConnect from "@/src/lib/mongoose";
+import Note from "@/src/lib/model/note";
 import { notFound } from "next/navigation";
-import { NoteView } from "@/app/components/NoteView";
+import { NoteView } from "@/src/components/NoteView";
 // export const dynamic = 'force-dynamic';
 // export const revalidate = 0;
 

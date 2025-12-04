@@ -1,6 +1,6 @@
-import dbConnect from "@/app/lib/mongoose";
+import dbConnect from "@/src/lib/mongoose";
 import { NextResponse } from "next/server";
-import Note from "@/app/lib/model/note";
+import Note from "@/src/lib/model/note";
 import { auth } from "@clerk/nextjs/server";
 
 export async function GET() {

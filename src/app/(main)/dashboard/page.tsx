@@ -1,4 +1,4 @@
-import Navbar from "@/app/components/layout/navbar";
+import Navbar from "@/src/components/layout/navbar";
 import { RedirectToSignIn, SignInButton,
   SignUpButton, SignedIn,
   SignedOut,} from '@clerk/nextjs'

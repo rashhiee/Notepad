@@ -1,6 +1,7 @@
 import mongoose, { Schema, models, Document } from "mongoose";
 
 export interface INoteDoc extends Document {
+  id:string,
   userId:string,
   noteName: string;
   tags: string[];
